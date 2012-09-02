@@ -1,0 +1,24 @@
+#!/usr/bin/env coffee
+
+jirest = require '../src/jirest'
+
+opts = require('../node_modules/nomnom')
+  .scriptName('jirest')
+  .opts({
+    debug:
+      abbr: 'd'
+      flag: true
+      help: 'print debugging info'
+    version:
+      abbr: 'v'
+      flag: true
+      help: 'print version and exit'
+      callback: () ->
+        'version ' + jirest.myself.version
+    })
+args = opts.parseArgs()
+
+command = args._
+delete args._
+
+jirest.exec command, args, opts
