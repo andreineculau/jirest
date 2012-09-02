@@ -16,7 +16,17 @@ nano ~/.jirest/config.json
 
 Try it out with `jirest [someproject]-[someticketnumber]`.
 
-If you want a different layout, `cp .jirest/* ~/.jirest/` and start playing with the templates in [eco][^2]
+If you want a different layout, `cp .jirest/*.tpl ~/.jirest/`,
+and extend `~/.jirest/config.json` to look like below, and start playing with the templates in [eco][^2].
+
+```json
+{
+    ...,
+    "tpl": {
+        "issue": "~/.jirest/issue.tpl"
+    }
+}
+```
 
 
 # Roadmap
@@ -24,9 +34,9 @@ If you want a different layout, `cp .jirest/* ~/.jirest/` and start playing with
 * OAuth instead of cleartext user and pass `jirest auth user:password`
 
 * Search for an issue `jirest (issue) search`
-* *DONE* Read issue `jirest (issue) proj-5`
-* *DONE* Open issue in browser `jirest proj-5 open`
-* *DONE* Create branch name from issue `jirest proj-5 branch`
+* **DONE** Read issue `jirest (issue) proj-5`
+* **DONE** Open issue in browser `jirest proj-5 open`
+* **DONE** Create branch name from issue `jirest proj-5 branch`
 * Assign me to issue `jirest proj-5 assignme`
 
 * Add comment to issue `jirest proj-5 comment 'lorem ipsum'`
